@@ -20,16 +20,16 @@ inner_disk = collections.deque(
     ['a', 'c', 'e', 'g', 'k', 'l', 'n', 'p', 'r', 't', 'v', 'z', '&', 'x', 'y', 's', 'o', 'm', 'q', 'i', 'h', 'f', 'd', 'b'])
 
 
-def decypher(plain_text, key):
+def decifra_alberti(texto_cifrado, letra_chave):
     ret = ""
 
     # Key is lower case:
-    key = key.lower()
+    key = letra_chave.lower()
 
     # Find index of key in inner_disk:
     key_index = inner_disk.index(key)
 
-    for next in plain_text:
+    for next in texto_cifrado:
         # Check for disks rotation (if 'next' is an 'outter_disk' character):
         try:
             pos = outter_disk.index(next)
@@ -41,4 +41,4 @@ def decypher(plain_text, key):
     return ret
 
 
-print(decypher("AlvrMrqlrZsysVhvq", 'g'))
+print(decifra_alberti("AlvrMrqlrZsysVhvq", 'g'))
